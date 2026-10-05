@@ -1,0 +1,4 @@
+setting,val_accuracy,val_macro_f1
+full_finetuning,0.931,0.9300036030478818
+no_augmentation,0.932,0.9313606154707335
+frozen_backbone,0.7653333333333333,0.755761072674576

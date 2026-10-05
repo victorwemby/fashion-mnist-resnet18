@@ -1,0 +1,14 @@
+# Generated artifacts
+
+Training outputs are written here locally. Small plots and CSV files are kept as evidence of the reported run; model checkpoints are ignored by Git because they are large.
+
+| File or folder | Description |
+|---|---|
+| `best.pt` | Best locally trained ResNet-18 checkpoint (ignored by Git) |
+| `history.csv` | Epoch-level training and validation metrics |
+| `classification_report.csv` | Per-class precision, recall, and F1 |
+| `test_predictions.csv` | Test-set predictions used for error inspection |
+| `confusion_matrix.png` | Confusion matrix for the test set |
+| `training_curves.png` | Loss and accuracy curves |
+| `gradcam_*.png` | Example Grad-CAM visualisation |
+| `ablation/` | Results for the three controlled training configurations |

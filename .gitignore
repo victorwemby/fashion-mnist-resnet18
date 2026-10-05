@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Data and generated artifacts
+/data/
+artifacts/*
+!artifacts/
+!artifacts/**/
+!artifacts/.gitkeep
+*.pt
+*.pth
+*.ckpt
+demonstration.mp4
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+!artifacts/README.md
+!artifacts/**/*.png
+!artifacts/**/*.csv
+!data/README.md
