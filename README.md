@@ -38,6 +38,7 @@ The files are grouped by role so that a reviewer can read the project in this or
 | `reports/gradcam_case_d02d510d.md` | Short case study for the supplied example image |
 | `reports/learning_guide.md` | Beginner-friendly explanation of the complete workflow |
 | `reports/results_template.md` | Blank template for recording a future run |
+| `reports/evidence_checklist.md` | Exact evidence files and commands for verifying reported metrics |
 
 ### 3. Documentation and examples
 
