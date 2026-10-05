@@ -8,7 +8,19 @@ import argparse
 from pathlib import Path
 
 import pandas as pd
-from sklearn.metrics import accuracy_score, f1_score
+
+
+def macro_f1_score(true_labels: pd.Series, predicted_labels: pd.Series) -> float:
+    classes = sorted(set(true_labels) | set(predicted_labels))
+    scores = []
+    for label in classes:
+        tp = sum((true_labels == label) & (predicted_labels == label))
+        fp = sum((true_labels != label) & (predicted_labels == label))
+        fn = sum((true_labels == label) & (predicted_labels != label))
+        precision = tp / (tp + fp) if tp + fp else 0.0
+        recall = tp / (tp + fn) if tp + fn else 0.0
+        scores.append(2 * precision * recall / (precision + recall) if precision + recall else 0.0)
+    return sum(scores) / len(scores)
 
 
 def main() -> None:
@@ -18,8 +30,8 @@ def main() -> None:
     args = parser.parse_args()
 
     predictions = pd.read_csv(args.predictions)
-    accuracy = accuracy_score(predictions["true"], predictions["pred"])
-    macro_f1 = f1_score(predictions["true"], predictions["pred"], average="macro")
+    accuracy = (predictions["true"] == predictions["pred"]).mean()
+    macro_f1 = macro_f1_score(predictions["true"], predictions["pred"])
 
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
