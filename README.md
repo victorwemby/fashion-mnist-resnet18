@@ -25,6 +25,7 @@ The files are grouped by role so that a reviewer can read the project in this or
 | `src/gradcam.py` | Create a Grad-CAM heatmap showing which image regions affect a prediction |
 | `src/ablation.py` | Run controlled comparisons: full fine-tuning, no augmentation, and frozen backbone |
 | `src/utils.py` | Shared random-seed and directory utilities |
+| `src/verify_results.py` | Recompute test metrics from saved predictions for auditability |
 
 ### 2. Results and reports
 
@@ -78,6 +79,7 @@ The first run downloads Fashion-MNIST and the ResNet-18 weights. Use `--weights 
 .\.venv\Scripts\python.exe src\gradcam.py --checkpoint artifacts\best.pt --image path\to\image.png --output artifacts\gradcam.png
 .\.venv\Scripts\python.exe src\ablation.py --runs 1 --output-dir artifacts\ablation
 .\.venv\Scripts\python.exe src\demo.py --checkpoint artifacts\best.pt
+.\.venv\Scripts\python.exe src\verify_results.py
 ```
 
 ## Recommended reading order
