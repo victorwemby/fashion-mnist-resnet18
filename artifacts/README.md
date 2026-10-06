@@ -13,3 +13,11 @@ Training outputs are written here locally. Small plots and CSV files are kept as
 | `training_curves.png` | Loss and accuracy curves |
 | `gradcam_*.png` | Example Grad-CAM visualisation |
 | `ablation/` | Results for the three controlled training configurations |
+
+### Why a one-epoch curve can look empty
+
+The recorded headline run used one epoch to keep CPU runtime short. A one-epoch
+history contains one x-value, so there is no line segment between epochs. The
+plot is still valid: the exact values are stored in `history.csv`. The training
+script now draws a visible marker for this case. Use `--epochs 3` if a multi-point
+trend is needed for a presentation figure.
