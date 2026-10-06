@@ -2,14 +2,14 @@
 
 ## Input
 
-Desktop image: `d02d510d1a241b34bb4ef477ea5bdf9b.png`
+The original input was selected from the Desktop. A portable copy is included in the repository at `examples/d02d510d1a241b34bb4ef477ea5bdf9b.png`.
 
 ## Generation command
 
 ```powershell
 .\.venv\Scripts\python.exe src\gradcam.py `
   --checkpoint artifacts\best.pt `
-  --image "C:\Users\wxhdq\Desktop\d02d510d1a241b34bb4ef477ea5bdf9b.png" `
+  --image examples\d02d510d1a241b34bb4ef477ea5bdf9b.png `
   --output artifacts\gradcam_d02d510d1a241b34bb4ef477ea5bdf9b.png
 ```
 
@@ -24,3 +24,4 @@ Grad-CAM projects gradients from the final ResNet-18 convolutional layer back in
 ## Limitation
 
 Fashion-MNIST consists of 28×28 grayscale images. A heatmap for a colorful product photograph is therefore a distribution-shift example and does not demonstrate general-purpose product recognition.
+

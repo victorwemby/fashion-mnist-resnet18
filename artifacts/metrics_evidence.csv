@@ -1,0 +1,5 @@
+metric,value,source
+Test Accuracy,0.9231,artifacts/test_predictions.csv
+Test Macro-F1,0.9222506088157907,artifacts/test_predictions.csv
+Validation Accuracy,0.931,artifacts\history.csv
+Validation Macro-F1,0.9300036030478818,artifacts\history.csv

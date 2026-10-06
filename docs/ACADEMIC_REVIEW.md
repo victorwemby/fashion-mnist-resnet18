@@ -15,4 +15,5 @@ How effectively can ImageNet transfer learning adapt ResNet-18 to Fashion-MNIST,
 
 ## Reproduction
 
-Install dependencies, download Fashion-MNIST through Torchvision or place the four raw files in `data/FashionMNIST/raw/`, then run the commands in `README.md`.
+Install dependencies and run the commands in `README.md`. Torchvision downloads the four Fashion-MNIST files automatically into `data/FashionMNIST/raw/`; manual placement of those files is optional when network access is unavailable.
+

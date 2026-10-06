@@ -8,7 +8,7 @@ How does transfer learning adapt a CNN to Fashion-MNIST, and how much do augment
 
 ## Results
 
-The recorded one-epoch CPU run achieved **92.3% test accuracy** and **92.2% macro-F1**. In the ablation runs, freezing the backbone reduced the frozen run's test accuracy to **77.0%**, showing the value of task-specific fine-tuning. The summary CSV records validation metrics; each ablation folder also contains its test predictions and reports.
+The recorded one-epoch CPU run achieved **92.3% test accuracy** and **92.2% macro-F1**. In the ablation runs, freezing the backbone reduced the frozen run's **test accuracy to 77.0%** (recomputed from that setting's `test_predictions.csv`), showing the value of task-specific fine-tuning. The summary CSV records **validation** metrics; each ablation folder also contains its test predictions and reports.
 
 ## Repository guide
 
@@ -77,7 +77,7 @@ The first run downloads Fashion-MNIST and the ResNet-18 weights. Use `--weights 
 ## Analysis commands
 
 ```powershell
-.\.venv\Scripts\python.exe src\gradcam.py --checkpoint artifacts\best.pt --image path\to\image.png --output artifacts\gradcam.png
+.\.venv\Scripts\python.exe src\gradcam.py --checkpoint artifacts\best.pt --image examples\d02d510d1a241b34bb4ef477ea5bdf9b.png --output artifacts\\gradcam.png
 .\.venv\Scripts\python.exe src\ablation.py --runs 1 --output-dir artifacts\ablation
 .\.venv\Scripts\python.exe src\demo.py --checkpoint artifacts\best.pt
 .\.venv\Scripts\python.exe src\verify_results.py
@@ -102,3 +102,5 @@ Fashion-MNIST contains centered 28×28 grayscale single-object images. Performan
 ## License
 
 MIT. See `LICENSE`.
+
+

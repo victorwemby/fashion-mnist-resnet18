@@ -16,8 +16,11 @@ The three settings are:
 
 Results are saved to `artifacts/ablation/ablation_results.csv`.
 
-The summary CSV records validation Accuracy and Macro-F1. The corresponding
-`test_predictions.csv` and `classification_report.csv` files inside each setting
-directory provide the test-set evidence.
+The summary CSV records **validation Accuracy and Macro-F1** only. The recorded
+frozen-backbone validation accuracy is 76.5%. The corresponding
+`test_predictions.csv` and `classification_report.csv` files provide independent
+test-set evidence; the frozen-backbone test predictions give 77.0% test accuracy.
+These values must not be mixed when reporting the experiment.
 
 Interpretation should focus on differences in validation Accuracy and Macro-F1. A formal study should use multiple random seeds or more epochs for more stable estimates.
+

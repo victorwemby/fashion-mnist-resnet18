@@ -18,6 +18,20 @@
 | Validation Accuracy | 93.1% |
 | Validation Macro-F1 | 93.0% |
 
+## Ablation results
+
+The ablation summary reports validation metrics, while the per-setting prediction
+files support separate test-set checks.
+
+| Setting | Validation Accuracy | Validation Macro-F1 | Test Accuracy |
+|---|---:|---:|---:|
+| Full fine-tuning with augmentation | 93.1% | 93.0% | 92.3% |
+| Full fine-tuning without augmentation | 93.2% | 93.1% | 92.7% |
+| Frozen backbone | 76.5% | 75.6% | 77.0% |
+
+The validation columns are copied from `artifacts/ablation/ablation_results.csv`.
+The test accuracy column is recomputed from each setting's `test_predictions.csv`.
+
 ## Interactive demonstration
 
 Run:
@@ -45,3 +59,5 @@ The resulting `artifacts/training_curves.png` will show changes in training loss
 The training data consists of 28×28 grayscale images containing one centered object. Performance on colorful product photographs, complex backgrounds, and multiple objects is therefore limited. The four-region feature demonstrates multi-region inference but is not a formal object detector.
 
 Future work could use a color clothing dataset and an object detection model such as YOLO or SSD to output a bounding box, class, and confidence for each object.
+
+
