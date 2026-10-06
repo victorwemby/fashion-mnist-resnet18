@@ -9,6 +9,6 @@ This repository is organized for academic review:
 - `artifacts/` — generated outputs such as plots and metrics; large checkpoints are ignored by Git.
 - `data/` — downloaded Fashion-MNIST files; ignored by Git.
 - `.github/workflows/` — automated syntax smoke test.
-- `demonstration.mp4` — local demo recording; excluded from GitHub because it is larger than GitHub's recommended file size.
+- `demonstration.mp4` — demo recording tracked with Git LFS because it is a large binary file.
 
 The local `.venv/` directory is for development only and is ignored by Git.

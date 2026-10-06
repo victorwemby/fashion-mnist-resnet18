@@ -16,4 +16,8 @@ The three settings are:
 
 Results are saved to `artifacts/ablation/ablation_results.csv`.
 
+The summary CSV records validation Accuracy and Macro-F1. The corresponding
+`test_predictions.csv` and `classification_report.csv` files inside each setting
+directory provide the test-set evidence.
+
 Interpretation should focus on differences in validation Accuracy and Macro-F1. A formal study should use multiple random seeds or more epochs for more stable estimates.

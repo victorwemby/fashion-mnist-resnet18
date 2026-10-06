@@ -62,14 +62,14 @@ def run_epoch(model, loader, loss_fn, optimizer, device, training):
     return sum(losses) / len(loader.dataset), truths, predictions
 
 def main():
-    parser = argparse.ArgumentParser(description="Train a CIFAR-10 ResNet-18 classifier")
+    parser = argparse.ArgumentParser(description="Train a Fashion-MNIST ResNet-18 classifier")
     parser.add_argument("--epochs", type=int, default=5)
     parser.add_argument("--batch-size", type=int, default=64)
     parser.add_argument("--lr", type=float, default=1e-4)
     parser.add_argument("--data-dir", default="data")
     parser.add_argument("--output-dir", default="artifacts")
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--no-pretrained", action="store_true", help="skip the 170 MB weight download for a quick smoke test")
+    parser.add_argument("--no-pretrained", action="store_true", help="skip the pretrained ResNet-18 weight download for a quick smoke test")
     parser.add_argument("--limit-per-split", type=int, default=0, help="use only this many samples per split; 0 means all")
     parser.add_argument("--fake-data", action="store_true", help="use generated random images for an offline smoke test")
     parser.add_argument("--weights", default="", help="local ResNet-18 weights file (.pth), avoids downloading")

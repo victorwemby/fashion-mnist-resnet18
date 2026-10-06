@@ -9,6 +9,7 @@ must match these files and the command output.
 | Validation Macro-F1 93.0% | `artifacts/history.csv` | Read the `val_macro_f1` column: `0.9300036` |
 | Test Accuracy 92.3% | `artifacts/test_predictions.csv` | Run `src/verify_results.py` |
 | Test Macro-F1 92.2% | `artifacts/test_predictions.csv` | Run `src/verify_results.py` |
+| Four-metric evidence table | `artifacts/metrics_evidence.csv` | Run `src/verify_results.py` |
 | Ablation comparison | `artifacts/ablation/ablation_results.csv` | Read the three recorded settings |
 | Visual model evidence | `artifacts/confusion_matrix.png`, `artifacts/gradcam_*.png` | Open the PNG files |
 

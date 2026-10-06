@@ -8,7 +8,7 @@ How does transfer learning adapt a CNN to Fashion-MNIST, and how much do augment
 
 ## Results
 
-The recorded one-epoch CPU run achieved **92.3% test accuracy** and **92.2% macro-F1**. The ablation study reduced accuracy to **77.0%** when the backbone was frozen, showing the value of task-specific fine-tuning.
+The recorded one-epoch CPU run achieved **92.3% test accuracy** and **92.2% macro-F1**. In the ablation runs, freezing the backbone reduced the frozen run's test accuracy to **77.0%**, showing the value of task-specific fine-tuning. The summary CSV records validation metrics; each ablation folder also contains its test predictions and reports.
 
 ## Repository guide
 
@@ -60,9 +60,9 @@ The files are grouped by role so that a reviewer can read the project in this or
 | `LICENSE` | MIT open-source license |
 | `CONTRIBUTING.md` | Small guide for future improvements |
 | `SECURITY.md` | Contact and reporting guidance for security issues |
-| `demonstration.mp4` | Local screen recording of the desktop demo; excluded from GitHub because it is about 100 MB |
+| `demonstration.mp4` | Screen recording of the desktop demo, stored with Git LFS |
 
-The local `.venv/`, `data/`, `*.pt`/`*.pth` checkpoint files, and the large local demo video are intentionally kept out of GitHub. A reviewer can recreate the software demo by following the commands below.
+The local `.venv/`, `data/`, and `*.pt`/`*.pth` checkpoint files are intentionally kept out of GitHub. The demonstration video is tracked with Git LFS because it is a large binary file. A reviewer can recreate the software demo by following the commands below.
 
 ## Quick start (Windows)
 
@@ -82,6 +82,10 @@ The first run downloads Fashion-MNIST and the ResNet-18 weights. Use `--weights 
 .\.venv\Scripts\python.exe src\demo.py --checkpoint artifacts\best.pt
 .\.venv\Scripts\python.exe src\verify_results.py
 ```
+
+The verification command recomputes the two test metrics from the saved
+predictions and reads the two validation metrics from `artifacts/history.csv`.
+It writes all four values and their source paths to `artifacts/metrics_evidence.csv`.
 
 ## Recommended reading order
 

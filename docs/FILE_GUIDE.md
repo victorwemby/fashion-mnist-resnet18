@@ -48,4 +48,4 @@ This page gives a complete, beginner-friendly description of the files that shou
 
 ## Deliberately excluded from GitHub
 
-`.venv/`, `data/FashionMNIST/`, `artifacts/*.pt`, `artifacts/**/*.pt`, and `demonstration.mp4` are local or large files. They are reproducible or viewable through the source code and are excluded by `.gitignore`.
+`.venv/`, `data/FashionMNIST/`, and `artifacts/*.pt`/`artifacts/**/*.pt` are local or large files excluded by `.gitignore`. `demonstration.mp4` is large but is tracked with Git LFS.
