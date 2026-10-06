@@ -14,31 +14,38 @@ The recorded one-epoch CPU run achieved **92.3% test accuracy** and **92.2% macr
 
 The files are grouped by role so that a reviewer can read the project in this order:
 
+**Admissions priority:** start with `README.md`, then open `reports/results.md`,
+`artifacts/metrics_evidence.csv`, `artifacts/confusion_matrix.png`,
+`artifacts/gradcam_d02d510d1a241b34bb4ef477ea5bdf9b.png`, and
+`artifacts/ablation/ablation_results.csv`. These files provide the headline
+results, reproducible evidence, model-error analysis, interpretability, and the
+controlled comparison in the shortest path.
+
 ### 1. Source code (`src/`)
 
 | File | What it does |
 |---|---|
-| `src/train.py` | Main experiment: train, validate, test, and save metrics and plots |
+| `src/train.py` | Main experiment: train, validate, test, and save metrics and plots (Admissions priority: implementation) |
 | `src/data.py` | Download Fashion-MNIST, apply transforms, and create fixed data splits |
 | `src/infer.py` | Predict the top-3 classes for one image from the command line |
 | `src/demo.py` | Launch the Tkinter desktop demo for image selection and prediction |
-| `src/gradcam.py` | Create a Grad-CAM heatmap showing which image regions affect a prediction |
-| `src/ablation.py` | Run controlled comparisons: full fine-tuning, no augmentation, and frozen backbone |
+| `src/gradcam.py` | Create a Grad-CAM heatmap showing which image regions affect a prediction (Admissions priority: interpretability) |
+| `src/ablation.py` | Run controlled comparisons: full fine-tuning, no augmentation, and frozen backbone (Admissions priority: experiment design) |
 | `src/utils.py` | Shared random-seed and directory utilities |
-| `src/verify_results.py` | Recompute test metrics from saved predictions for auditability |
+| `src/verify_results.py` | Recompute test metrics from saved predictions for auditability (Admissions priority: evidence) |
 
 ### 2. Results and reports
 
 | Path | What it contains |
 |---|---|
-| `artifacts/` | Generated plots, CSV metrics, predictions, and the Grad-CAM example |
+| `artifacts/` | Generated plots, CSV metrics, predictions, and the Grad-CAM example (Admissions priority: results) |
 | `artifacts/ablation/` | Outputs from each ablation configuration and the summary CSV |
-| `reports/results.md` | Measured accuracy, Macro-F1, and experiment interpretation |
-| `reports/interpretability_ablation.md` | Plain-English explanation of Grad-CAM and the ablation study |
+| `reports/results.md` | Measured accuracy, Macro-F1, and experiment interpretation (Admissions priority: results) |
+| `reports/interpretability_ablation.md` | Plain-English explanation of Grad-CAM and the ablation study (Admissions priority: analysis) |
 | `reports/gradcam_case_d02d510d.md` | Short case study for the supplied example image |
 | `reports/learning_guide.md` | Beginner-friendly explanation of the complete workflow |
 | `reports/results_template.md` | Blank template for recording a future run |
-| `reports/evidence_checklist.md` | Exact evidence files and commands for verifying reported metrics |
+| `reports/evidence_checklist.md` | Exact evidence files and commands for verifying reported metrics (Admissions priority: verification) |
 
 ### 3. Documentation and examples
 
@@ -60,7 +67,7 @@ The files are grouped by role so that a reviewer can read the project in this or
 | `LICENSE` | MIT open-source license |
 | `CONTRIBUTING.md` | Small guide for future improvements |
 | `SECURITY.md` | Contact and reporting guidance for security issues |
-| `demonstration.mp4` | Screen recording of the desktop demo, stored with Git LFS |
+| `demonstration.mp4` | Screen recording of the desktop demo, stored with Git LFS (Admissions priority: practical demonstration) |
 
 The local `.venv/`, `data/`, and `*.pt`/`*.pth` checkpoint files are intentionally kept out of GitHub. The demonstration video is tracked with Git LFS because it is a large binary file. A reviewer can recreate the software demo by following the commands below.
 

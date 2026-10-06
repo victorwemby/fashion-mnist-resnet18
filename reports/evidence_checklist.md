@@ -3,15 +3,19 @@
 Use the following files as evidence. The values in the application description
 must match these files and the command output.
 
+The files marked **(Admissions priority)** are the most useful screenshots or
+links to show a reviewer.
+
 | Claim | Evidence | How to verify |
 |---|---|---|
 | Validation Accuracy 93.1% | `artifacts/history.csv` | Read the `val_accuracy` column: `0.931` |
 | Validation Macro-F1 93.0% | `artifacts/history.csv` | Read the `val_macro_f1` column: `0.9300036` |
 | Test Accuracy 92.3% | `artifacts/test_predictions.csv` | Run `src/verify_results.py` |
 | Test Macro-F1 92.2% | `artifacts/test_predictions.csv` | Run `src/verify_results.py` |
-| Four-metric evidence table | `artifacts/metrics_evidence.csv` | Run `src/verify_results.py` |
-| Ablation comparison | `artifacts/ablation/ablation_results.csv` | Read the three recorded settings |
-| Visual model evidence | `artifacts/confusion_matrix.png`, `artifacts/gradcam_*.png` | Open the PNG files |
+| Four-metric evidence table (Admissions priority) | `artifacts/metrics_evidence.csv` | Run `src/verify_results.py` |
+| Verification screenshot (Admissions priority) | `artifacts/metrics_evidence_verification_screenshot.png` | Open the PNG file |
+| Ablation comparison (Admissions priority) | `artifacts/ablation/ablation_results.csv` | Read the three recorded settings |
+| Visual model evidence (Admissions priority) | `artifacts/confusion_matrix.png`, `artifacts/gradcam_*.png` | Open the PNG files |
 
 ## Screenshot procedure
 
