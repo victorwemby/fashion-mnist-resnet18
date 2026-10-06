@@ -26,24 +26,33 @@ def macro_f1_score(true_labels: pd.Series, predicted_labels: pd.Series) -> float
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--predictions", default="artifacts/test_predictions.csv")
-    parser.add_argument("--output", default="artifacts/test_metrics.csv")
+    parser.add_argument("--output", default="artifacts/metrics_evidence.csv")
     args = parser.parse_args()
 
     predictions = pd.read_csv(args.predictions)
     accuracy = (predictions["true"] == predictions["pred"]).mean()
     macro_f1 = macro_f1_score(predictions["true"], predictions["pred"])
+    history_path = Path("artifacts/history.csv")
+    history = pd.read_csv(history_path)
+    latest = history.iloc[-1]
+    metrics = [
+        {"metric": "Test Accuracy", "value": accuracy, "source": str(args.predictions)},
+        {"metric": "Test Macro-F1", "value": macro_f1, "source": str(args.predictions)},
+        {"metric": "Validation Accuracy", "value": latest["val_accuracy"], "source": str(history_path)},
+        {"metric": "Validation Macro-F1", "value": latest["val_macro_f1"], "source": str(history_path)},
+    ]
 
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame(
-        [{"metric": "test_accuracy", "value": accuracy},
-         {"metric": "test_macro_f1", "value": macro_f1}]
-    ).to_csv(output, index=False)
+    pd.DataFrame(metrics).to_csv(output, index=False)
 
     print(f"Predictions: {len(predictions)}")
-    print(f"Test Accuracy: {accuracy * 100:.1f}%")
-    print(f"Test Macro-F1: {macro_f1 * 100:.1f}%")
-    print(f"Saved evidence: {output}")
+    print("\n=== VERIFIED METRICS ===")
+    print(f"Test Accuracy:       {accuracy * 100:.1f}%   [from {args.predictions}]")
+    print(f"Test Macro-F1:       {macro_f1 * 100:.1f}%   [from {args.predictions}]")
+    print(f"Validation Accuracy: {latest['val_accuracy'] * 100:.1f}%   [from {history_path}]")
+    print(f"Validation Macro-F1: {latest['val_macro_f1'] * 100:.1f}%   [from {history_path}]")
+    print(f"\nSaved complete evidence: {output}")
 
 
 if __name__ == "__main__":

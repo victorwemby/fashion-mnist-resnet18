@@ -18,7 +18,7 @@ From the repository root, run:
 
 ```powershell
 .\.venv\Scripts\python.exe src\verify_results.py
-Get-Content artifacts\test_metrics.csv
+Get-Content artifacts\metrics_evidence.csv
 Get-Content artifacts\history.csv
 Get-Content artifacts\ablation\ablation_results.csv
 ```
