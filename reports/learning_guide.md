@@ -1,29 +1,34 @@
-# 零基础学习路线
+# Beginner Learning Guide
 
-## 第 1 步：先理解任务
+## Step 1: Understand the task
 
-输入一张图片，模型在十个类别中选择一个：airplane、automobile、bird、cat、deer、dog、frog、horse、ship、truck。
+The model receives one image and selects one of ten Fashion-MNIST classes: T-shirt/top, trouser, pullover, dress, coat, sandal, shirt, sneaker, bag, or ankle boot.
 
-## 第 2 步：先成功运行训练
+## Step 2: Run training successfully
 
-先用 1 个 epoch 验证环境：`py src\\train.py --epochs 1 --batch-size 64`。成功后再训练 5 个 epoch。
+First use one epoch to verify the environment:
 
-## 第 3 步：认识四个核心概念
+```powershell
+.\.venv\Scripts\python.exe src\train.py --epochs 1 --batch-size 64
+```
 
-- 训练集：模型用来学习。
-- 验证集：每轮训练后检查模型是否变好。
-- 测试集：最后一次评价模型，不能反复用来调参。
-- Epoch：模型完整看过一次训练集。
+After the pipeline works, a longer run can be used for a smoother learning curve.
 
-## 第 4 步：查看结果
+## Step 3: Learn four core concepts
 
-打开 `artifacts/history.csv` 看数值，打开两张 PNG 看曲线和混淆矩阵。重点观察验证集 Accuracy、Macro-F1 是否上升，以及哪些类别容易混淆。
+- **Training set:** data used by the model to learn parameters.
+- **Validation set:** data used after each epoch to monitor progress.
+- **Test set:** data used for the final evaluation and kept separate from tuning.
+- **Epoch:** one complete pass through the training set.
 
-## 第 5 步：做一个推理演示
+## Step 4: Inspect the results
 
-准备一张图片，执行 README 中的推理命令。注意：CIFAR-10 是低分辨率数据集，互联网图片不一定能得到高置信度；这是正常现象，也可以作为误差分析的一部分。
+Open `artifacts/history.csv` for numeric values. Open the PNG files for the training curves and confusion matrix. Check whether validation Accuracy and Macro-F1 improve and which classes are confused most often.
 
-## 第 6 步：写申请材料
+## Step 5: Run an inference demo
 
-只写真实运行结果。建议记录：训练时间、设备（CPU/GPU）、测试 Accuracy、Macro-F1、最容易混淆的两组类别，以及一张预测可视化图。
+Prepare an image and run the inference command in the README. The model was trained on centered, low-resolution grayscale images, so an internet photograph may receive low confidence. That is expected distribution shift and can be discussed as part of error analysis.
 
+## Step 6: Write the application description
+
+Report only measured results. Record the training time, device (CPU or GPU), test Accuracy, Macro-F1, the most confused class pair, and one prediction visualisation.

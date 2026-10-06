@@ -1,29 +1,19 @@
-# 可解释性与消融实验
+# Interpretability and Ablation Study
 
 ## Grad-CAM
 
-Grad-CAM 用最后一个卷积层的梯度生成热力图，显示模型用于分类的图像区域。
+Grad-CAM uses gradients from the final convolutional layer to create a heatmap showing which image regions contributed to the classification decision.
 
-```powershell
-.\.venv\Scripts\python.exe src\gradcam.py --checkpoint artifacts\best.pt --image artifacts\fashion_sample.png --output artifacts\gradcam.png
-```
+## Ablation study
 
-输出：`artifacts/gradcam.png`。
+The study compares training configurations using the same data split and training duration. Only one design choice is changed at a time where possible.
 
-## 消融实验
+The three settings are:
 
-同一数据划分、同一训练轮数下比较：
+- `full_finetuning`: full fine-tuning with data augmentation
+- `no_augmentation`: full fine-tuning without random flips and crops
+- `frozen_backbone`: the ResNet-18 backbone is frozen and only the final classifier is trained
 
-```powershell
-.\.venv\Scripts\python.exe src\ablation.py --runs 1 --output-dir artifacts\ablation
-```
+Results are saved to `artifacts/ablation/ablation_results.csv`.
 
-三组设置：
-
-- `full_finetuning`：完整微调 + 数据增强
-- `no_augmentation`：完整微调，不使用随机翻转和裁剪
-- `frozen_backbone`：冻结 ResNet-18，只训练最后分类层
-
-结果文件：`artifacts/ablation/ablation_results.csv`。
-
-解释时关注验证 Accuracy 和 Macro-F1 的差异，并说明实验只改变一个因素。正式报告应使用多次运行或更多 epoch 后的真实结果。
+Interpretation should focus on differences in validation Accuracy and Macro-F1. A formal study should use multiple random seeds or more epochs for more stable estimates.

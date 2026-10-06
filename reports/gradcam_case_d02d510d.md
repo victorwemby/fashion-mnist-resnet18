@@ -1,10 +1,10 @@
-# Grad-CAM 案例：d02d510d1a241b34bb4ef477ea5bdf9b
+# Grad-CAM Case Study: d02d510d1a241b34bb4ef477ea5bdf9b
 
-## 输入
+## Input
 
-桌面图片：`d02d510d1a241b34bb4ef477ea5bdf9b.png`
+Desktop image: `d02d510d1a241b34bb4ef477ea5bdf9b.png`
 
-## 生成命令
+## Generation command
 
 ```powershell
 .\.venv\Scripts\python.exe src\gradcam.py `
@@ -13,14 +13,14 @@
   --output artifacts\gradcam_d02d510d1a241b34bb4ef477ea5bdf9b.png
 ```
 
-## 如何解读
+## Interpretation
 
-Grad-CAM 将 ResNet-18 最后卷积层的梯度投影回图片空间。红色区域表示对当前预测贡献较大的区域，蓝色区域表示贡献较小的区域。分析时检查热力图是否集中在服饰主体，而不是背景。
+Grad-CAM projects gradients from the final ResNet-18 convolutional layer back into image space. Red regions contributed more strongly to the prediction, while blue regions contributed less. Check whether attention is concentrated on the clothing item rather than the background.
 
-## 申请材料写法
+## Application wording
 
 `I used Grad-CAM to inspect whether the classifier focused on the clothing object when making its prediction. The visualization provided a qualitative check of the model's decision process and exposed potential sensitivity to background and input distribution.`
 
-## 限制
+## Limitation
 
-Fashion-MNIST 训练图片是 28×28 灰度图，因此彩色商品图的热力图只能作为分布偏移案例，不能证明模型具备通用商品识别能力。
+Fashion-MNIST consists of 28×28 grayscale images. A heatmap for a colorful product photograph is therefore a distribution-shift example and does not demonstrate general-purpose product recognition.
