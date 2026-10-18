@@ -12,6 +12,7 @@ How effectively can ImageNet transfer learning adapt ResNet-18 to Fashion-MNIST,
 - `reports/results.md`: recorded metrics and limitations.
 - `src/gradcam.py`: visual explanation of model attention.
 - `src/demo.py`: interactive inference interface.
+- [`demonstration.mp4`](../demonstration.mp4): recorded walkthrough of the interface, including image selection, top-3 output, and four-region inference.
 
 ## Reproduction
 

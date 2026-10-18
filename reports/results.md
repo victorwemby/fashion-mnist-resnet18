@@ -34,13 +34,13 @@ The test accuracy column is recomputed from each setting's `test_predictions.csv
 
 ## Interactive demonstration
 
-Run:
+The recorded workflow is available in [`demonstration.mp4`](../demonstration.mp4). To reproduce it, run:
 
 ```powershell
 .\.venv\Scripts\python.exe src\demo.py --checkpoint artifacts\best.pt
 ```
 
-After selecting an image, the program displays the original image and a whole-image prediction. `Analyze 4 regions` provides predictions for four image regions as a simple multi-region demonstration.
+After selecting an image, the program displays the original image and a whole-image prediction with the top three class probabilities. The preview preserves colour for readability, while the model receives a fitted, contrast-enhanced grayscale crop resized to 224×224 and normalized with the ImageNet channel statistics. `Analyze 4 regions` then evaluates the whole image and its top-left, top-right, bottom-left, and bottom-right crops in one batch. This is a simple multi-region inference demonstration; it is not a trained object detector and does not return bounding boxes.
 
 ## Why a one-epoch training curve can look empty
 

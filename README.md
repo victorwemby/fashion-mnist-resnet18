@@ -67,7 +67,7 @@ controlled comparison in the shortest path.
 | `LICENSE` | MIT open-source license |
 | `CONTRIBUTING.md` | Small guide for future improvements |
 | `SECURITY.md` | Contact and reporting guidance for security issues |
-| `demonstration.mp4` | Screen recording of the desktop demo, stored with Git LFS (Admissions priority: practical demonstration) |
+| [`demonstration.mp4`](demonstration.mp4) | Screen recording of the desktop demo, stored with Git LFS (Admissions priority: practical demonstration) |
 
 The local `.venv/`, `data/`, and `*.pt`/`*.pth` checkpoint files are intentionally kept out of GitHub. The demonstration video is tracked with Git LFS because it is a large binary file. A reviewer can recreate the software demo by following the commands below.
 
@@ -93,6 +93,17 @@ The first run downloads Fashion-MNIST and the ResNet-18 weights. Use `--weights 
 The verification command recomputes the two test metrics from the saved
 predictions and reads the two validation metrics from `artifacts/history.csv`.
 It writes all four values and their source paths to `artifacts/metrics_evidence.csv`.
+
+## Demonstration video and desktop walkthrough
+
+Watch [`demonstration.mp4`](demonstration.mp4) for the recorded end-to-end interaction. The same flow can be reproduced locally:
+
+1. Start the window with `src/demo.py` and a trained checkpoint.
+2. Click **Choose image**, select a PNG/JPG/BMP file, and confirm that the original image is shown in the preview area.
+3. Read the whole-image prediction and the top-three class probabilities shown below the preview. The preview keeps the original colour; inference converts a fitted crop to grayscale, increases contrast, resizes it to 224×224, and applies the ImageNet normalization used by the model.
+4. Click **Analyze 4 regions** to run the whole image plus top-left, top-right, bottom-left, and bottom-right crops in one batch. The result lists one class and confidence for each region.
+
+The region button is an inference demonstration, not an object detector: it does not produce bounding boxes and should not be interpreted as reliable multi-object recognition. If no image has been selected, the button asks the user to choose one first; file or prediction errors are shown in a dialog.
 
 ## Recommended reading order
 
