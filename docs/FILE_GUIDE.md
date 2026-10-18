@@ -29,10 +29,6 @@ Items marked **(Admissions priority)** are the files a reviewer should open firs
 | `src/utils.py` | Shared reproducibility and directory helpers |
 | `src/verify_results.py` | Recomputes the reported metrics from saved predictions and writes an evidence CSV (Admissions priority) |
 
-### Desktop demonstration
-
-The video at [`demonstration.mp4`](../demonstration.mp4) shows the supported desktop workflow implemented by `src/demo.py`. Start the app with a checkpoint, choose an image, inspect the colour-preserving preview and whole-image top-3 probabilities, then use **Analyze 4 regions** for predictions on the whole image and four quadrant crops. The model input is converted to a contrast-enhanced grayscale crop before inference. Four-region output is a simple multi-region example; it is not object detection and does not provide bounding boxes.
-
 ## Evidence and reports
 
 | Location | Role |
