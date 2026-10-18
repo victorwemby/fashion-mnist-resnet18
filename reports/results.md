@@ -32,16 +32,6 @@ files support separate test-set checks.
 The validation columns are copied from `artifacts/ablation/ablation_results.csv`.
 The test accuracy column is recomputed from each setting's `test_predictions.csv`.
 
-## Interactive demonstration
-
-The recorded workflow is available in [`demonstration.mp4`](../demonstration.mp4). To reproduce it, run:
-
-```powershell
-.\.venv\Scripts\python.exe src\demo.py --checkpoint artifacts\best.pt
-```
-
-After selecting an image, the program displays the original image and a whole-image prediction with the top three class probabilities. The preview preserves colour for readability, while the model receives a fitted, contrast-enhanced grayscale crop resized to 224×224 and normalized with the ImageNet channel statistics. `Analyze 4 regions` then evaluates the whole image and its top-left, top-right, bottom-left, and bottom-right crops in one batch. This is a simple multi-region inference demonstration; it is not a trained object detector and does not return bounding boxes.
-
 ## Why a one-epoch training curve can look empty
 
 The recorded result comes from a fast **1 epoch CPU run**. Consequently, `artifacts/history.csv` contains one training record and each curve has only one data point. A single point has no neighboring epoch to connect to, so an older plot may look empty or may not show a clear line. This does not indicate a failed training run and does not change the numeric values stored in `history.csv`.
